@@ -15,12 +15,12 @@ AFPSBombActor::AFPSBombActor()
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
 	RootComponent = MeshComp;
 
-	ExplodeDelay = 2.0f;
+	ExplodeDelay = 2.0f; //Create a delay timer for explosions
 }
 
 void AFPSBombActor::Explode()
 {
-	UGameplayStatics::SpawnEmitterAtLocation(this, ExplosionTemplate, GetActorLocation());
+	UGameplayStatics::SpawnEmitterAtLocation(this, ExplosionTemplate, GetActorLocation()); //create the explosion at this position
 
 	FCollisionObjectQueryParams QueryParams;
 	QueryParams.AddObjectTypesToQuery(ECC_WorldDynamic);
